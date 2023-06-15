@@ -1,4 +1,4 @@
-module github.com/lestrrat-go/echo-middleware-jwx
+module github.com/amleonc/echo-middleware-jwx
 
 go 1.16
 
