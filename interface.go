@@ -3,9 +3,9 @@ package jwx
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"github.com/lestrrat-go/jwx/jwa"
-	"github.com/lestrrat-go/jwx/jwk"
-	"github.com/lestrrat-go/jwx/jwt"
+	"github.com/lestrrat-go/jwx/v2/jwa"
+	"github.com/lestrrat-go/jwx/v2/jwk"
+	"github.com/lestrrat-go/jwx/v2/jwt"
 )
 
 var ErrJWTInvalid = middleware.ErrJWTInvalid
@@ -64,7 +64,7 @@ type Config struct {
 	// If the key needs periodic rotation, use jwk.AutoRefresh
 	KeySet jwk.Set
 
-	// KeyFunc is a user-defined function that supplies the key or key set for 
+	// KeyFunc is a user-defined function that supplies the key or key set for
 	// token verification.
 	//
 	// If you simply want to refresh the key(s) to verify the token with, consider using
