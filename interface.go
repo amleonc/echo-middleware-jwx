@@ -19,7 +19,7 @@ type Skipper = middleware.Skipper
 
 type jwtExtractor func(echo.Context) (string, error)
 
-// Config defines the config for JWT middleware (using github.com/lestrrat-go/jwx/jwt).
+// Config defines the config for JWT middleware (using github.com/lestrrat-go/jwx/v2/jwt).
 type Config struct {
 	// Skipper defines a function to skip middleware.
 	Skipper Skipper
@@ -68,16 +68,16 @@ type Config struct {
 	// token verification.
 	//
 	// If you simply want to refresh the key(s) to verify the token with, consider using
-	// `github.com/lestrrat-go/jwx/jwk.AutoRefresh`, and set the key set in the KeySet field.
+	// `github.com/lestrrat-go/jwx/v2/jwk.NewCache`, and set the key set in the KeySet field.
 	KeyFunc func(echo.Context) (interface{}, error)
 
 	// ValidateOptions defines the set of options to pass to jwt.Validate() in order to validate the JWT.
 	//
-	// See github.com/lestrrat-go/jwx/jwt for the various options available.
+	// See github.com/lestrrat-go/jwx/v2/jwt for the various options available.
 	ValidateOptions []jwt.ValidateOption
 
 	// TokenFactory is a function that creates a new instance of a token.
-	// Use it to tell jwx to use a different underlying token type (such as github.com/lestrrat-go/jwx/jwt/openid)
+	// Use it to tell jwx to use a different underlying token type (such as github.com/lestrrat-go/jwx/v2/jwt/openid)
 	//
 	// Optional. Default function always creates a new token using jwt.New
 	TokenFactory func(echo.Context) jwt.Token
